@@ -6,4 +6,4 @@
  * Time: 10:26
  */
 phpinfo();
-echo "hahaha";
+echo "zc1415926";
