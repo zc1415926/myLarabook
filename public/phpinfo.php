@@ -6,3 +6,4 @@
  * Time: 10:26
  */
 phpinfo();
+echo "hahaha";
