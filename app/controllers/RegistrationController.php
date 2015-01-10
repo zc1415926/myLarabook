@@ -30,7 +30,7 @@ class RegistrationController extends BaseController {
 		//dd($username);
 
 		$user = $this->execute(
-
+			//把生成User和增删改User合成一句话，Controller里没有操作数据的代码，解耦
 			new RegisterUserCommand($username, $email, $password)
 		);
 

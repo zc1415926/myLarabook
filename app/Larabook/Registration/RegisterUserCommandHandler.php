@@ -40,6 +40,7 @@ class RegisterUserCommandHandler implements CommandHandler{
             $command->password
 		);
         //dd($user);
+        //没有操作数据的代码，解耦
         $this->repository->save($user);
 
         $this->dispatchEventsFor($user);
