@@ -1,6 +1,6 @@
 <?php namespace Larabook\Users;
 
-use Eloquent;
+use Eloquent, Hash;
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
@@ -27,6 +27,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function setPasswordAttribute($password)
+	{
+		$this->attributes['password'] = Hash::make($password);
+	}
 	public static function register($username, $email, $password)
 	{
 		//echo "sb";
