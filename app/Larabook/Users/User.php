@@ -5,10 +5,12 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Larabook\Registration\Events\UserRegistered;
+use Laracasts\Commander\Events\EventGenerator;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, EventGenerator;
 
 	protected $fillable = ['username', 'email', 'password'];
 	/**
@@ -30,6 +32,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		//echo "sb";
 		//dd($username);
 		$user = new static(compact('username', 'email', 'password'));
+
+		$user->raise(new UserRegistered($user));
+
 		return $user;
 	}
 
