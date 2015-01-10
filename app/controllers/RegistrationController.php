@@ -3,6 +3,7 @@
 use Larabook\Forms\RegistrationForm;
 use Larabook\Registration\RegisterUserCommand;
 use Laracasts\Commander\CommandBus;
+use Laracasts\Flash\Flash;
 
 class RegistrationController extends BaseController {
 
@@ -43,6 +44,8 @@ class RegistrationController extends BaseController {
 //		);
 //
 		Auth::login($user);
+
+		Flash::overlay('Glad to have you as a new Larabook member!', 'Welcome!');
 
 		return Redirect::home();
 	}
