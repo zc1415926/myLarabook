@@ -21,4 +21,10 @@ class UserRepository {
         //dd($user);
         return $user->save();
     }
+
+    public function getPaginated($howMany = 25)
+    {
+        //return User::paginate($howMany);
+        return User::simplePaginate($howMany);
+    }
 }

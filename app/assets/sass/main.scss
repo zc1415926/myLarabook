@@ -13,6 +13,10 @@ body{
   margin-bottom: 2em
 }
 
+.users{
+  margin-bottom: 3em;
+}
+
 //The "Pushlish Status"area
 .status-post{
   border: 1px solid #e3e3e3;
@@ -40,4 +44,8 @@ body{
   }
 
 
+}
+
+.users-pagination{
+  text-align: center;
 }

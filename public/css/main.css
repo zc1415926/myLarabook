@@ -10,6 +10,9 @@ body {
   padding: 1em;
   margin-bottom: 2em; }
 
+.users {
+  margin-bottom: 3em; }
+
 .status-post {
   border: 1px solid #e3e3e3;
   background: white;
@@ -27,3 +30,6 @@ body {
     overflow: hidden; }
     .status-post .status-post-submit .btn {
       float: right; }
+
+.users-pagination {
+  text-align: center; }
