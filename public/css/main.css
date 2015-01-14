@@ -16,7 +16,8 @@ body {
   margin-bottom: 3em;
   padding: 0; }
   .status-post textarea {
-    border: none; }
+    border: none;
+    resize: none; }
     .status-post textarea:focus {
       box-shadow: none; }
   .status-post .status-post-submit {
