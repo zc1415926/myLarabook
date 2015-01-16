@@ -1,19 +1,19 @@
 <?php
 
-use Larabook\Core\CommandBus;
+use Larabook\Forms\PublishStatusForm;
 use Larabook\Statuses\PublishStatusCommand;
 use Larabook\Statuses\StatusRepository;
 use Laracasts\Flash\Flash;
 
-class StatusController extends \BaseController {
-
-	use Commandbus;
+class StatusesController extends \BaseController {
 
 	protected $statusRepository;
+	protected $publishStatusForm;
 
-	function __construct(StatusRepository $statusRepository)
+	function __construct(StatusRepository $statusRepository, PublishStatusForm $publishStatusForm)
 	{
 		$this->statusRepository = $statusRepository;
+		$this->publishStatusForm = $publishStatusForm;
 	}
 
 	/**
@@ -34,8 +34,11 @@ class StatusController extends \BaseController {
 	 */
 	public function store()
 	{
-		//$status =
-		$this->execute(new PublishStatusCommand(Input::get('body'), Auth::user()->id));
+		$input = Input::all();
+		$input['userId'] = Auth::id();
+
+		$this->publishStatusForm->validate($input);
+		$this->execute(PublishStatusCommand::class, $input);
 
 		Flash::message('Your status has been updated!');
 

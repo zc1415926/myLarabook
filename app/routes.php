@@ -35,27 +35,27 @@ Route::post('register', [
  */
 Route::get('login', [
     'as' => 'login_path',
-    'uses' => 'SeesionsController@create'
+    'uses' => 'SessionsController@create'
 ]);
 
 Route::post('login', [
     'as' => 'login_path',
-    'uses' => 'SeesionsController@store'
+    'uses' => 'SessionsController@store'
 ]);
 
 Route::get('logout', [
     'as' => 'logout_path',
-    'uses' => 'SeesionsController@destroy'
+    'uses' => 'SessionsController@destroy'
 ]);
 
 Route::get('statuses', [
     'as' => 'statuses_path',
-    'uses' => 'StatusController@index'
+    'uses' => 'StatusesController@index'
 ]);
 
 Route::post('statuses', [
     'as' => 'statuses_path',
-    'uses' => 'StatusController@store'
+    'uses' => 'StatusesController@store'
 ]);
 
 Route::get('users', [

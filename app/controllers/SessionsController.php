@@ -3,7 +3,7 @@
 use Larabook\Forms\SignInForm1;
 use Laracasts\Flash\Flash;
 
-class SeesionsController extends \BaseController {
+class SessionsController extends \BaseController {
 
 	/**
 	 * @var SignInForm
@@ -36,11 +36,14 @@ class SeesionsController extends \BaseController {
 		$formData = Input::only('email', 'password');
 		$this->signInForm->validate($formData);
 
-		if(Auth::attempt($formData))
+		if(!Auth::attempt($formData))
 		{
-			Flash::message('Welcome back!');
-			return Redirect::intended('/statuses');
+			Flash::error('Login error');
+			return Redirect::back()->withInput();
 		}
+
+		Flash::message('Welcome back!');
+		return Redirect::intended('/statuses');
 	}
 
 	public function destroy()
