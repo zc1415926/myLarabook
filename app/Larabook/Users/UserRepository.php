@@ -35,4 +35,19 @@ class UserRepository {
             $query->latest();
         }])->whereUsername($username)->first();
     }
+
+    public function findById($id)
+    {
+        return User::findOrFail($id);
+    }
+
+    public function follow($userIdToFollow, User $user)
+    {
+        $user->followedUsers()->attach($userIdToFollow);
+    }
+
+    public function unfollow($userIdToUnfollow, User $user)
+    {
+        $user->followedUsers()->detach($userIdToUnfollow);
+    }
 }
