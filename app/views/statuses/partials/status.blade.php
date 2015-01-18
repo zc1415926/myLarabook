@@ -7,3 +7,14 @@
         @include('users.partials.follow-form', ['user' => $status->user])
     </div>
 </article>
+
+@if($signedIn)
+    {{ Form::open() }}
+    {{ Form::close() }}
+@endif
+
+@if($status->comments)
+    <div class="comments">
+        
+    </div>
+@endif
