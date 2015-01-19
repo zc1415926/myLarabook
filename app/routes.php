@@ -78,7 +78,7 @@ Route::delete('follows/{id}', [
     'uses' => 'FollowsController@destroy'
 ]);
 
-R:post('statuses/{id}/comments', [
+Route::post('statuses/{id}/comments', [
     'as' => 'comment_path',
     'uses' => 'CommentsController@store'
 ]);
