@@ -8,8 +8,10 @@ class CommentsController extends \BaseController {
 	use CommanderTrait;
 	public function store()
 	{
-		$input = array_add(Input::get(), 'user_id', Auth::id());
+		$input = array_add(Input::all(), 'user_id', Auth::id());
 
-		$this->excute(LeaveCommentOnStatusCommand::class, $input);
+		$this->execute(LeaveCommentOnStatusCommand::class, $input);
+
+		return Redirect::back();
 	}
 }

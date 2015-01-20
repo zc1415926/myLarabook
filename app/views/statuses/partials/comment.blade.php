@@ -1,4 +1,4 @@
-<article class="comment__comment media status-media">
+<article class="comments__comment media status-media">
     <div class="pull-left"></div>
     <div class="media-body">
         <h4 class="media-heading">{{ $comment->owner->username; }}</h4>

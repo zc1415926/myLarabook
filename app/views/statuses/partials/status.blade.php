@@ -18,10 +18,10 @@
     {{ Form::close() }}
 @endif
 
-@if($comments = $status->comments)
+@unless($status->comments->isEmpty())
     <div class="comments">
-        @foreach($comments as $comment)
+        @foreach($status->comments as $comment)
             @include('statuses.partials.comment')
         @endforeach
     </div>
-@endif
+@endunless

@@ -32,4 +32,12 @@ class StatusRepository {
 
         return Status::with('comments')->whereIn('user_id', $userIds)->latest()->get();
     }
+
+    public function leaveComment($userId, $statusId, $body)
+    {
+        $comment = Comment::leave($body, $statusId);
+        User::findOrFail($userId)->comments()->save($comment);
+
+        return $comment;
+    }
 }

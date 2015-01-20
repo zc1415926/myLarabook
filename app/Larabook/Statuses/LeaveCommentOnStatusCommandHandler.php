@@ -20,7 +20,7 @@ class LeaveCommentOnStatusCommandHandler implements CommandHandler {
      */
     public function handle($command)
     {
-        $comment = $this->statusRepo->leaveComment($command-user_id, $command->status_id, $body);
+        $comment = $this->statusRepo->leaveComment($command->user_id, $command->status_id, $command->body);
 
         return $comment;
     }
